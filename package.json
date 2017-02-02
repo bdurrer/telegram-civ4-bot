@@ -1,0 +1,35 @@
+{
+  "name": "telegram-civ4-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot which reports the status of a Civilisation 4 PitBoss game",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "scripts": {
+    "test": "test",
+    "serve": "node src/index.js config/myoptions.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bdurrer/telegram-civ4-bot.git"
+  },
+  "keywords": [
+    "telegram",
+    "civ4",
+    "pitboss",
+    "bot"
+  ],
+  "author": "Beat Durrer",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/bdurrer/telegram-civ4-bot/issues"
+  },
+  "homepage": "https://github.com/bdurrer/telegram-civ4-bot#readme",
+  "dependencies": {
+    "telebot": "^1.0.6"
+  },
+  "devDependencies": {
+    "eslint": "^3.14.1"
+  }
+}
