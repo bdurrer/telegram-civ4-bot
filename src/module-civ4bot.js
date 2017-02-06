@@ -88,23 +88,25 @@ module.exports = (bot, cfg) => {
      * fetches the game state from the website and triggers an update, if anything changed
      */
     function updateGameState(enableNotification){
-      return http.get(opt.statusPageUrl, (res) => {
-        const statusCode = res.statusCode;
-        if (statusCode !== 200) {
-          console.log(`Status update from ${opt.statusPageUrl} failed with response code ${statusCode}. Next try in ${opt.updateInterval} seconds.`);
-          res.resume();
-          return;
-        }
+        return http.get(opt.statusPageUrl, (res) => {
+          const statusCode = res.statusCode;
+          if (statusCode !== 200) {
+            console.log(`Status update from ${opt.statusPageUrl} failed with response code ${statusCode}. Next try in ${opt.updateInterval} seconds.`);
+            res.resume();
+            return;
+          }
 
-        // Continuously update stream with data
-        let body = '';
-        res.on('data', (d) => {
-            body += d;
+          // Continuously update stream with data
+          let body = '';
+          res.on('data', (d) => {
+              body += d;
+          });
+          res.on('end', () => {
+              onGameStateChanged(body, enableNotification);
+          });
+        }).on('error', (e) => {
+          console.log(`Status update from ${opt.statusPageUrl} failed. Next try in ${opt.updateInterval} seconds.`, e);
         });
-        res.on('end', () => {
-            onGameStateChanged(body, enableNotification);
-        });
-      });
     }
 
     function onGameStateChanged(responseHtml, enableNotification){
