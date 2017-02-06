@@ -23,12 +23,14 @@ bot.use(AskModule);
 bot.use(Civ4Module);
 
 // On every text message
+/*
 bot.on('text', (msg) => {
     let id = msg.from.id;
     let text = msg.text;
     console.log('DEBUG got a text message from ', id, ', it said ', text);
     return bot.sendMessage(id, `DEBUG: You said: ${text}`);
 });
+*/
 
 bot.connect();
 

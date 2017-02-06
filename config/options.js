@@ -18,7 +18,8 @@ module.exports = {
   modules: {
     // Module configuration.
     civ4bot: {
-        statusPageUrl: 'http://localhost:8080/pitboss.htm'
+      statusPageUrl: 'http://localhost:8080/index.html',
+      updateInterval: 10 * 60, // in seconds
     }
   }
 };
