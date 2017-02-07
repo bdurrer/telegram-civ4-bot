@@ -7,7 +7,7 @@
 const path = require('path');
 const TeleBot = require('telebot');
 const AskModule = require('telebot/modules/ask.js');
-const Civ4Module = require('./module-civ4bot.js');
+const Civ4Module = require('./module-civ4bot/module-civ4bot.js');
 
 // read the config from the run params, if present
 const args = process.argv.splice(2);
